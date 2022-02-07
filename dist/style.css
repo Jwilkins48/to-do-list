@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=PT+Sans+Narrow:wght@400;700&family=Short+Stack&display=swap');
+* {
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Short Stack', cursive;
+    overflow: hidden;
+}
+.headerContainer{
+    display: flex;
+    justify-content: center;
+    background-color: #a2dcf3;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.iconContainer{
+    display: flex;
+    align-items: center;
+    margin: 4px;
+}
+
+/* Content  */
+.contentContainer{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.toDoHeading{
+    margin-left: 25px;
+}
+
+/* Side Bar */
+.sideBarContainer{
+    height: 84vh;
+    background-color: #e6eff3;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.sideBarHeading{
+    margin: 25px;
+}
+
+.sideBarList{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+.listBtn{
+    font-family: 'Short Stack', cursive;
+    width: auto;
+    height: 70px;
+    border: #f0d5d9 1px solid;
+    cursor: pointer;
+}
+.listBtn:hover{
+    background-color: #f1e4e6;
+}
+
+.addTaskBtn{
+    border: transparent;
+    cursor: pointer;
+    background: transparent;
+    margin-top: 16px;
+    
+}
+
+footer{
+    background-color: #c4e3f0;
+    height: 100px;
+}
