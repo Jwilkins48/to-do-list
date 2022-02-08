@@ -1,1 +1,1 @@
-console.log("hi");
+(()=>{"use strict";const e=document.querySelector(".projectForm"),t=document.querySelector(".addProjectBtn"),c=()=>{e.classList.add("active")},r=()=>(t.addEventListener("click",c),r);r()})();

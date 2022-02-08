@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,12 +10,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="imgs/heart-to-do-list.png">
 </head>
+
 <body>
     <div class="headerContainer">
         <h1>ToDo List</h1>
         <div class="iconContainer"><img src="imgs/to-do-list.png" alt="todo List" width="50" height="50"></div>
     </div>
     <div class="contentContainer">
+        <!-- Side bar -->
         <div class="sideBarContainer">
             <h3 class="sideBarHeading">What's Due</h3>
             <ul class="sideBarList">
@@ -22,22 +25,39 @@
                 <button class="listBtn">Today</button>
                 <button class="listBtn">This Week</button>
             </ul>
-
+            <!-- Add button -->
             <div class="addBtnContainer">
-                <button class="addTaskBtn"><img src="imgs/pinkPlus.png" alt="add" width="60" height="60"></button>
+                <button class="addProjectBtn"><img src="imgs/pinkPlus.png" alt="add" width="60" height="60"></button>
+            </div>
+            <div class="projectContainer">
+                <h3 class="sideBarHeading">Projects</h3>
             </div>
         </div>
         <div class="toDoContainer">
             <h1 class="toDoHeading">Current Task</h1>
         </div>
+        <!-- Form -->
+        <div class="projectForm">
+            <div class="projectFormContent">
+                <label class="formHeading">Name Your Project</label>
+                <input type="text" id="projectName" placeholder="Project name">
+
+            </div>
+        </div>
     </div>
 
     <footer id="footer">
-        <!-- <a href="https://www.flaticon.com/free-icons/to-do-list" title="to do list icons">To do list icons created by Freepik - Flaticon</a> -->
-        <!-- <a href="https://www.flaticon.com/free-icons/schedule" title="schedule icons">Schedule icons created by Vectors Tank - Flaticon</a> -->
-        <!-- <a href="https://www.flaticon.com/free-icons/conclusion" title="conclusion icons">Conclusion icons created by Icon home - Flaticon</a> -->
-        <!-- <a href="https://www.flaticon.com/free-icons/plus" title="plus icons">Plus icons created by Freepik - Flaticon</a> -->
-        <!-- <a href="https://www.flaticon.com/free-icons/plus" title="plus icons">Plus icons created by Yogi Aprelliyanto - Flaticon</a> -->
+        <div class="attrib">
+            <a href="https://www.flaticon.com/free-icons/to-do-list" title="to do list icons">icon created by
+                Freepik-Flaticon</a>
+            <a href="https://www.flaticon.com/free-icons/schedule" title="schedule icons">icon created by Vectors
+                Tank-Flaticon</a>
+            <a href="https://www.flaticon.com/free-icons/conclusion" title="conclusion icons">icon created by Icon
+                home-Flaticon</a>
+            <a href="https://www.flaticon.com/free-icons/plus" title="plus icons">Icon created by Yogi
+                Aprelliyanto-Flaticon</a>
+        </div>
     </footer>
 </body>
+
 </html>

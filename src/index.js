@@ -1,1 +1,3 @@
-console.log('hi');
+import {eventListeners} from './modules/addProject';
+
+eventListeners();

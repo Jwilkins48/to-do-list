@@ -8,6 +8,7 @@ body{
     font-family: 'Short Stack', cursive;
     overflow: hidden;
 }
+/* Header */
 .headerContainer{
     display: flex;
     justify-content: center;
@@ -21,7 +22,7 @@ body{
     margin: 4px;
 }
 
-/* Content  */
+/* Page Content  */
 .contentContainer{
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -33,7 +34,7 @@ body{
 
 /* Side Bar */
 .sideBarContainer{
-    height: 84vh;
+    height: calc(100vh - 165px);
     background-color: #e6eff3;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -59,15 +60,56 @@ body{
     background-color: #f1e4e6;
 }
 
-.addTaskBtn{
+.addProjectBtn{
     border: transparent;
     cursor: pointer;
     background: transparent;
     margin-top: 16px;
-    
 }
 
+.projectForm{
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.25);
+    width: 405px;
+    padding: 20px 30px;
+    background-color: #a2dcf3;
+    color: #323838;
+    border: solid 1px #323838;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: top 0ms ease-in-out 200ms,
+        opacity 200ms ease-in-out 0ms,
+        transform 20ms ease-in-out 0ms;
+}
+.projectForm.active {
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: top 0ms ease-in-out 0ms,
+        opacity 200ms ease-in-out 0ms,
+        transform 20ms ease-in-out 0ms;
+}
+
+
+
+
+
+
+/* Footer */
 footer{
     background-color: #c4e3f0;
     height: 100px;
+}
+.attrib{
+    display: flex;
+    justify-content: space-evenly;
+}
+footer a{
+    font-size: 7px;
+    text-decoration: none;
+    margin-top: 25px;
+    color: rgb(2, 142, 177);
 }
