@@ -1,73 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=PT+Sans+Narrow:wght@400;700&family=Short+Stack&display=swap');
+
 * {
     box-sizing: border-box;
 }
-body{
+
+body {
     margin: 0;
     padding: 0;
     font-family: 'Short Stack', cursive;
     overflow: hidden;
 }
+
 /* Header */
-.headerContainer{
+.headerContainer {
     display: flex;
     justify-content: center;
     background-color: #a2dcf3;
     padding: 20px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-.iconContainer{
+
+.iconContainer {
     display: flex;
     align-items: center;
     margin: 4px;
 }
 
 /* Page Content  */
-.contentContainer{
+.contentContainer {
     display: grid;
     grid-template-columns: 1fr 4fr;
 }
 
-.toDoHeading{
+.toDoHeading {
     margin-left: 25px;
 }
 
 /* Side Bar */
-.sideBarContainer{
+.sideBarContainer {
     height: calc(100vh - 165px);
     background-color: #e6eff3;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-.sideBarHeading{
+.sideBarHeading {
     margin: 25px;
 }
 
-.sideBarList{
+.sideBarList {
     display: flex;
     flex-direction: column;
     padding: 0;
 }
-.listBtn{
+
+.listBtn {
     font-family: 'Short Stack', cursive;
     width: auto;
     height: 70px;
     border: #f0d5d9 1px solid;
     cursor: pointer;
 }
-.listBtn:hover{
+
+.listBtn:hover {
     background-color: #f1e4e6;
 }
 
-.addProjectBtn{
+.addProjectBtn {
     border: transparent;
     cursor: pointer;
     background: transparent;
     margin-top: 16px;
 }
 
-.projectForm{
+.projectForm {
     position: absolute;
     top: -150%;
     left: 50%;
@@ -75,15 +81,16 @@ body{
     transform: translate(-50%, -50%) scale(1.25);
     width: 405px;
     padding: 20px 30px;
-    background-color: #a2dcf3;
+    background-color: #b3e0f1;
     color: #323838;
-    border: solid 1px #323838;
+    border: solid 1px #979e9e;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: top 0ms ease-in-out 200ms,
         opacity 200ms ease-in-out 0ms,
         transform 20ms ease-in-out 0ms;
 }
+
 .projectForm.active {
     top: 50%;
     opacity: 1;
@@ -93,21 +100,81 @@ body{
         transform 20ms ease-in-out 0ms;
 }
 
+.projectFormContent {
+    display: flex;
+    flex-direction: column;
+}
 
+.projectBtnContainer {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
 
+.projectBtn {
+    margin-top: 8px;
+    text-align: center;
+    border-radius: 4px;
+    width: 64px;
+    height: 29px;
+    font-family: 'Short Stack', cursive;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
 
+.add {
+    background-color: #aff0af;
+    border: 1px #7edd7e solid;
+}
+
+.add:hover {
+    background-color: #8be98b;
+}
+
+.close {
+    background-color: #eeadad;
+    border: 1px #f78a8a solid;
+}
+
+.close:hover {
+    background-color: #ec8d8d;
+}
+
+#projectName {
+    margin: 5px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px #ffffff solid;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+#projectName:focus {
+    border: none;
+    resize: none;
+    outline: none;
+    background-color: #f0f6f7;
+}
+
+.formHeading {
+    text-align: center;
+    margin: 5px;
+    font-size: 18px;
+}
 
 
 /* Footer */
-footer{
+footer {
     background-color: #c4e3f0;
     height: 100px;
 }
-.attrib{
+
+.attrib {
     display: flex;
     justify-content: space-evenly;
 }
-footer a{
+
+footer a {
     font-size: 7px;
     text-decoration: none;
     margin-top: 25px;
