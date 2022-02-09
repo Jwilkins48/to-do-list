@@ -162,6 +162,46 @@ body {
     font-size: 18px;
 }
 
+/* Project Display */
+#projectNameContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.projectDiv{
+    background-color: #f1dfdf;
+    border: 1px solid #e58484;
+    width: 210px;
+    height: 95px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.projectDiv:hover{
+    background-color: #f5ecec;
+}
+.projectDisplay{
+    margin: 15px;
+    font-size: 18px;
+}
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+.deleteBtn, .editBtn{
+    cursor: pointer;
+    background-color: #afe3f8;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 4px;
+    font-family: 'Short Stack', cursive;
+    width: 80px;
+}
+.deleteBtn:hover, .editBtn:hover{
+    background-color: #78d3f7;
+}
 
 /* Footer */
 footer {
