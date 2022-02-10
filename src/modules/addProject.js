@@ -1,8 +1,11 @@
+import { openTask } from './createTask';
+
 const projectForm = document.querySelector('.projectForm');
 const projectAddBtn = document.querySelector('#projectSubmitBtn');
 const cancelBtn = document.querySelector('#projectCloseBtn');
 const addBtn = document.querySelector('.addProjectBtn');
 const projectNameInput = document.querySelector('#projectName');
+const projectNameContainer = document.querySelector('#projectNameContainer');
 
 let projectList = [];
 
@@ -19,6 +22,7 @@ const eventListeners = () => {
     cancelBtn.addEventListener("click", hideForm);
 
     projectAddBtn.addEventListener('click', submitProject);
+
     return eventListeners;
 };
 
@@ -35,7 +39,8 @@ const submitProject = () => {
 
 // // Project form in sidebar
 const createProjectForm = (name) => {
-    let projectDiv = document.createElement('div');
+    let projectDiv = document.createElement('button');
+    projectDiv.addEventListener('click', openTask);
     projectDiv.classList.add('projectDiv');
 
     let buttonDiv = document.createElement('div');

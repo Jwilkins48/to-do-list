@@ -2,12 +2,12 @@
 
 * {
     box-sizing: border-box;
+    font-family: 'Short Stack', cursive;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Short Stack', cursive;
     overflow: hidden;
 }
 
@@ -55,7 +55,6 @@ body {
 }
 
 .listBtn {
-    font-family: 'Short Stack', cursive;
     width: auto;
     height: 70px;
     border: #f0d5d9 1px solid;
@@ -117,7 +116,6 @@ body {
     border-radius: 4px;
     width: 64px;
     height: 29px;
-    font-family: 'Short Stack', cursive;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
@@ -196,7 +194,6 @@ body {
     border: 1px solid;
     border-radius: 5px;
     padding: 4px;
-    font-family: 'Short Stack', cursive;
     width: 80px;
 }
 .deleteBtn:hover, .editBtn:hover{
