@@ -80,5 +80,6 @@ const hideForm = () => {
 }
 
 export {
-    eventListeners
+    eventListeners,
+    projectList
 };

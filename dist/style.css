@@ -36,6 +36,30 @@ body {
     margin-left: 25px;
 }
 
+/* Main page content */
+.taskTitleDiv{
+    margin: 50px;
+    border: 1px solid #91d4ee;
+    border-radius: 8px;
+    background-color: #c7e9f7;
+    width: 30%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: flex-end;
+}
+.taskTitle{
+    margin: auto;
+}
+.addTaskBtn{
+    background-color: transparent;
+    border: none;
+    font-size: 52px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
 /* Side Bar */
 .sideBarContainer {
     height: calc(100vh - 165px);
