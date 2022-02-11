@@ -1,4 +1,4 @@
-import { openTask } from './createTask';
+import { projectNameDisplay } from './createTask';
 
 const projectForm = document.querySelector('.projectForm');
 const projectAddBtn = document.querySelector('#projectSubmitBtn');
@@ -6,6 +6,8 @@ const cancelBtn = document.querySelector('#projectCloseBtn');
 const addBtn = document.querySelector('.addProjectBtn');
 const projectNameInput = document.querySelector('#projectName');
 const projectNameContainer = document.querySelector('#projectNameContainer');
+const taskCloseBtn = document.querySelector('#taskCloseBtn');
+const taskForm = document.querySelector('.taskForm');
 
 let projectList = [];
 
@@ -22,6 +24,8 @@ const eventListeners = () => {
     cancelBtn.addEventListener("click", hideForm);
 
     projectAddBtn.addEventListener('click', submitProject);
+
+    taskCloseBtn.addEventListener('click', hideTaskForm) 
 
     return eventListeners;
 };
@@ -40,7 +44,7 @@ const submitProject = () => {
 // // Project form in sidebar
 const createProjectForm = (name) => {
     let projectDiv = document.createElement('button');
-    projectDiv.addEventListener('click', openTask);
+    projectDiv.addEventListener('click', projectNameDisplay);
     projectDiv.classList.add('projectDiv');
 
     let buttonDiv = document.createElement('div');
@@ -78,6 +82,9 @@ const addProject = () => {
 }
 const hideForm = () => {
     projectForm.classList.remove('active');
+}
+const hideTaskForm = () => {
+    taskForm.classList.remove('active');
 }
 
 export {

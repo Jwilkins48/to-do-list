@@ -21,7 +21,7 @@
         <div class="sideBarContainer">
             <h3 class="sideBarHeading">What's Due</h3>
             <ul class="sideBarList">
-                <button class="listBtn">All Ds</button>
+                <button class="listBtn">All Tasks</button>
                 <button class="listBtn">Today</button>
                 <button class="listBtn">This Week</button>
             </ul>
@@ -57,13 +57,16 @@
 
         <div class="taskForm">
             <div class="taskFormContent">
-                <label class="taskformHeading">Task</label>
-                <input type="text" id="projectName" placeholder="Task">
+                <label class="taskformHeading">Task Name</label>
+                <input type="text" id="taskName" placeholder="Task">
 
                 <label class="taskformDesc">Description</label>
-                <input type="text" id="projectName" placeholder="What to do">
-
-                <label class="taskformDate">Due date</label>
+                <textarea name="desc" id="taskDesc" cols="30" rows="10"></textarea>
+                
+                <div class="dateContainer">
+                    <label class="taskformDate">Due date</label>
+                </div>
+                
 
                 <div class="taskBtnContainer">
                     <button type="button" id="taskSubmitBtn" class="projectBtn add">Submit</button>

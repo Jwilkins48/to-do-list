@@ -39,7 +39,7 @@ body {
 /* Main page content */
 .taskTitleDiv{
     margin: 50px;
-    border: 1px solid #91d4ee;
+    border: 1px solid #dce7eb;
     border-radius: 8px;
     background-color: #c7e9f7;
     width: 30%;
@@ -58,6 +58,31 @@ body {
     font-size: 52px;
     cursor: pointer;
     margin-right: 15px;
+}
+/* Task Form */
+#taskName{
+    width: 250px;
+    height: 35px;
+    border: 1px solid #ca7fa2;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.taskformDesc{
+    font-size: 17px;
+    margin: 14px;
+}
+#taskDesc{
+    width: 340px;
+    height: 150px;
+    border: 1px solid #ca7fa2;
+    border-radius: 5px;
+    resize: none;
+    padding: 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+#taskDesc:focus{
+    outline: none;
 }
 
 /* Side Bar */
@@ -106,7 +131,7 @@ body {
     padding: 20px 30px;
     background-color: #b3e0f1;
     color: #323838;
-    border: solid 1px #979e9e;
+    border: solid 1px #b7eeee;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: top 0ms ease-in-out 200ms,
@@ -193,7 +218,7 @@ body {
 .projectDiv{
     background-color: #f1dfdf;
     border: 1px solid #e58484;
-    width: 210px;
+    width: 310px;
     height: 95px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     margin: auto;
@@ -211,6 +236,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 8px;
+    margin: 18px;
 }
 .deleteBtn, .editBtn{
     cursor: pointer;
@@ -231,12 +257,12 @@ body {
     left: 50%;
     opacity: 0;
     transform: translate(-50%, -50%) scale(1.25);
-    width: 400px;
-    height: 250px;
-    padding: 20px 30px;
-    background-color: #b3e0f1;
+    width: 550px;
+    height: 450px;
+    padding: 25px 30px;
+    background-color: #bee5f5;
     color: #323838;
-    border: solid 1px #979e9e;
+    border: solid 1px #61929b;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: top 0ms ease-in-out 200ms,
@@ -257,6 +283,23 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.taskformHeading{
+    margin: 10px;
+    font-size: 20px;
+}
+.dateContainer{
+    margin-top: 20px;
+    font-size: 18px;
+}
+.taskBtnContainer{
+    margin: 40px;
+}
+#taskSubmitBtn, #taskCloseBtn{
+    width: 165px;
+    margin: 8px;
+    height: 35px;
 }
 
 /* Footer */

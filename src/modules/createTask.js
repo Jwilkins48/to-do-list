@@ -6,8 +6,13 @@ import {
 const toDoContainer = document.querySelector('.toDoContainer');
 const projectNameInput = document.querySelector('#projectName');
 const taskForm = document.querySelector('.taskForm');
+const taskName = document.querySelector('#taskName');
+const taskDesc = document.querySelector('#taskDesc');
 
-const CreateTask = (title, description, date) => {
+let taskList = [];
+
+
+const CreateTask = (title, description) => { //Add Date
     return {
         title,
         description,
@@ -15,7 +20,19 @@ const CreateTask = (title, description, date) => {
     }
 }
 
-export const openTask = () => {
+export const submitTask = () => {
+    let taskTitle = taskName.value;
+    let description =  taskDesc.value;
+    // let date
+
+    const createTask = CreateTask(taskTitle, description);
+    taskList.push(createTask);
+
+    // createTaskForm(taskTitle);
+    hideForm();
+}
+
+export const projectNameDisplay = () => {
     toDoContainer.innerHTML = '';
     // Title container
     const taskTitleDiv = document.createElement('div');
