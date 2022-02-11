@@ -73,6 +73,7 @@ const createProjectForm = (name) => {
 
 // // Opening and closing project form
 const addProject = () => {
+    projectNameInput.value = '';
     projectForm.classList.add('active');
 }
 const hideForm = () => {
