@@ -19,13 +19,15 @@ const NewProject = (name) => {
     };
 };
 
-const eventListeners = () => {
+export const eventListeners = () => {
     addBtn.addEventListener('click', addProject);
     cancelBtn.addEventListener("click", hideForm);
 
     projectAddBtn.addEventListener('click', submitProject);
 
     taskCloseBtn.addEventListener('click', hideTaskForm) 
+
+    hideForm();
 
     return eventListeners;
 };
@@ -87,7 +89,7 @@ const hideTaskForm = () => {
     taskForm.classList.remove('active');
 }
 
-export {
+export default {
     eventListeners,
     projectList
 };

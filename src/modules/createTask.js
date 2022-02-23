@@ -1,13 +1,10 @@
-import {
-    projectList,
-    eventListeners
-} from './addProject';
-
 const toDoContainer = document.querySelector('.toDoContainer');
 const projectNameInput = document.querySelector('#projectName');
+const taskSubBtn = document.querySelector('#taskSubmitBtn');
 const taskForm = document.querySelector('.taskForm');
 const taskName = document.querySelector('#taskName');
 const taskDesc = document.querySelector('#taskDesc');
+
 
 let taskList = [];
 
@@ -16,20 +13,48 @@ const CreateTask = (title, description) => { //Add Date
     return {
         title,
         description,
-        date
+        // date
     }
 }
 
 export const submitTask = () => {
-    let taskTitle = taskName.value;
-    let description =  taskDesc.value;
-    // let date
-
-    const createTask = CreateTask(taskTitle, description);
+    const createTask = CreateTask(taskName.value, taskDesc.value);
     taskList.push(createTask);
+    hideTaskForm();
+    createTaskCard();
+}
 
-    // createTaskForm(taskTitle);
-    hideForm();
+const createTaskCard = () => {
+// All Task Card Container
+    let taskCardContainer = document.createElement('div');
+    taskCardContainer.classList.add('taskCardContainer');
+
+    let taskCard = document.createElement('div');
+    taskCard.classList.add('taskCard');
+// Task Card Title
+    let taskCardTitle = document.createElement('h1');
+    taskCardTitle.classList.add('taskCardTitle');
+    taskCardTitle.textContent = taskName.value;
+// Card description
+    let taskDescription = document.createElement('p');
+    taskDescription.classList.add('taskDescription');
+    taskDescription.textContent = taskDesc.value;
+
+    let deleteCard = document.createElement('div');
+    deleteCard.classList.add('deleteCard');
+    deleteCard.innerHTML = `<i class="fa-solid fa-ellipsis-stroke"></i>`;
+// Append all
+    taskCard.appendChild(taskCardTitle);
+    taskCard.appendChild(taskDescription);
+    taskCard.appendChild(deleteCard);
+    taskCardContainer.appendChild(taskCard);
+    toDoContainer.appendChild(taskCardContainer);
+
+    // Delete button
+    // deleteCard.addEventListener('click', () => {
+    //     toDoContainer.removeChild(taskDiv);
+    //     taskList.splice(taskDiv, 1);
+    // });
 }
 
 export const projectNameDisplay = () => {
@@ -64,3 +89,7 @@ export const projectNameDisplay = () => {
     taskTitle.innerHTML = projectNameInput.value;
     return taskTitleDiv;
 }
+const hideTaskForm = () => {
+    taskForm.classList.remove('active')
+};
+taskSubBtn.addEventListener('click', submitTask);
