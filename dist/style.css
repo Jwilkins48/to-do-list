@@ -57,7 +57,10 @@ body {
     border: none;
     font-size: 52px;
     cursor: pointer;
-    margin-right: 15px;
+    margin-right: 28px;
+}
+.addTaskBtn:hover{
+    transform: scale(1.25);
 }
 /* Task Form */
 #taskName{
@@ -89,7 +92,7 @@ body {
 .taskCard{
     display: flex;
     align-items: center;
-
+    position: relative;
     width: 70%;
     height: 95px;
     border-radius: 5px;
@@ -326,6 +329,22 @@ body {
     height: 35px;
 }
 
+.taskOptions{
+    top: 0;
+    right: 0;
+    margin: 6px;
+    color: rgb(62, 146, 202);
+    font-family: font;
+    cursor: pointer;
+    position: absolute;
+    border: transparent;
+    background: transparent;
+}
+.taskOptions:hover{
+    background-color: #f1eaea;
+    opacity: .8;
+    border-radius: 50px;
+}
 /* Footer */
 footer {
     background-color: #c4e3f0;

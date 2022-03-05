@@ -8,53 +8,61 @@ const taskDesc = document.querySelector('#taskDesc');
 
 let taskList = [];
 
-
 const CreateTask = (title, description) => { //Add Date
-    return {
+    const todo = {
         title,
         description,
-        // date
+        checked: false,
+        id: Date.now(),
+    };
+
+    taskList.push(todo);
+    console.log(taskList);
+
+};
+
+export const submitTask = () => {
+    if(taskName.value.trim() !== ''){
+        const newTask = CreateTask(taskName.value, taskDesc.value);
+        hideTaskForm();
+        createTaskCard();
+    } else{
+        alert('Please enter task name')
     }
 }
 
-export const submitTask = () => {
-    const createTask = CreateTask(taskName.value, taskDesc.value);
-    taskList.push(createTask);
-    hideTaskForm();
-    createTaskCard();
-}
-
 const createTaskCard = () => {
-// All Task Card Container
+    // All Task Card Container
     let taskCardContainer = document.createElement('div');
     taskCardContainer.classList.add('taskCardContainer');
 
     let taskCard = document.createElement('div');
     taskCard.classList.add('taskCard');
-// Task Card Title
+
+    // Task Card Title
     let taskCardTitle = document.createElement('h1');
     taskCardTitle.classList.add('taskCardTitle');
     taskCardTitle.textContent = taskName.value;
-// Card description
+    // Card description
     let taskDescription = document.createElement('p');
     taskDescription.classList.add('taskDescription');
     taskDescription.textContent = taskDesc.value;
 
-    let deleteCard = document.createElement('div');
-    deleteCard.classList.add('deleteCard');
-    deleteCard.innerHTML = `<i class="fa-solid fa-ellipsis-stroke"></i>`;
-// Append all
+    let taskOptions = document.createElement('button');
+    taskOptions.classList.add('taskOptions');
+    taskOptions.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+    // Append all
     taskCard.appendChild(taskCardTitle);
     taskCard.appendChild(taskDescription);
-    taskCard.appendChild(deleteCard);
+    taskCard.appendChild(taskOptions);
     taskCardContainer.appendChild(taskCard);
     toDoContainer.appendChild(taskCardContainer);
 
     // Delete button
-    // deleteCard.addEventListener('click', () => {
-    //     toDoContainer.removeChild(taskDiv);
-    //     taskList.splice(taskDiv, 1);
-    // });
+    taskOptions.addEventListener('click', () => {
+        taskCardContainer.removeChild(taskCard);
+        taskList.splice(taskCard, 1);
+    });
 }
 
 export const projectNameDisplay = () => {
@@ -89,7 +97,9 @@ export const projectNameDisplay = () => {
     taskTitle.innerHTML = projectNameInput.value;
     return taskTitleDiv;
 }
+//Hide form
 const hideTaskForm = () => {
     taskForm.classList.remove('active')
 };
+
 taskSubBtn.addEventListener('click', submitTask);
