@@ -1,4 +1,6 @@
-import { projectNameDisplay } from './createTask';
+import {
+    projectNameDisplay
+} from './createTask';
 
 const projectForm = document.querySelector('.projectForm');
 const projectAddBtn = document.querySelector('#projectSubmitBtn');
@@ -11,10 +13,15 @@ const taskForm = document.querySelector('.taskForm');
 
 let projectList = [];
 
+let project = localStorage.getItem("projectsList");
+project = JSON.parse(project || JSON.stringify(projectList));
+
+let i = 0;
 const NewProject = (name) => {
     const allTasks = [];
     return {
         name,
+        id: i++,
         allTasks
     };
 };
@@ -22,26 +29,33 @@ const NewProject = (name) => {
 export const eventListeners = () => {
     addBtn.addEventListener('click', addProject);
     cancelBtn.addEventListener("click", hideForm);
-
     projectAddBtn.addEventListener('click', submitProject);
-
-    taskCloseBtn.addEventListener('click', hideTaskForm) 
+    taskCloseBtn.addEventListener('click', hideTaskForm);
 
     hideForm();
-
     return eventListeners;
 };
 
+
 //After hitting add inside project form
-const submitProject = () => {
-    let projectTitle = projectNameInput.value; 
+const submitProject = (e) => {
+    hideForm();
+    let projectTitle = projectNameInput.value;
 
     const createProject = NewProject(projectTitle);
-    projectList.push(createProject);
+    project.push(createProject);
 
-    createProjectForm(projectTitle);
-    hideForm();
+    localStorage.setItem("projectsList", JSON.stringify(project));
+    localStorage.setItem("currentId", createProject.id.toString());
+
+    console.log(project);
+    project.forEach(project => {
+        createProjectForm(createProject.name);
+    });
+
+    e.preventDefault();
 }
+
 
 // // Project form in sidebar
 const createProjectForm = (name) => {
@@ -69,11 +83,13 @@ const createProjectForm = (name) => {
     buttonDiv.appendChild(editBtn);
     buttonDiv.appendChild(deleteProjectBtn);
     projectDiv.appendChild(buttonDiv);
+
     projectNameContainer.appendChild(projectDiv);
 
     deleteProjectBtn.addEventListener('click', () => {
         projectNameContainer.removeChild(projectDiv);
         projectList.splice(projectDiv, 1);
+
     });
 };
 

@@ -7,13 +7,14 @@ const taskDesc = document.querySelector('#taskDesc');
 
 
 let taskList = [];
+let i = 0;
 
 const CreateTask = (title, description) => { //Add Date
     const todo = {
         title,
         description,
         checked: false,
-        id: Date.now(),
+        id: i++,
     };
 
     taskList.push(todo);
@@ -23,7 +24,7 @@ const CreateTask = (title, description) => { //Add Date
 
 export const submitTask = () => {
     if(taskName.value.trim() !== ''){
-        const newTask = CreateTask(taskName.value, taskDesc.value);
+        CreateTask(taskName.value, taskDesc.value);
         hideTaskForm();
         createTaskCard();
     } else{
