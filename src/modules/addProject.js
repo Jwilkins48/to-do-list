@@ -1,5 +1,6 @@
 import {
-    projectNameDisplay
+    projectNameDisplay,
+    id
 } from './createTask';
 
 const projectForm = document.querySelector('.projectForm');
@@ -11,14 +12,12 @@ const projectNameContainer = document.querySelector('#projectNameContainer');
 const taskCloseBtn = document.querySelector('#taskCloseBtn');
 const taskForm = document.querySelector('.taskForm');
 
-
-let projectList = [];
-
-
-let project = localStorage.getItem("projectsList");
-project = JSON.parse(project || JSON.stringify(projectList));          //
-
 let i = 0;
+let projectList = [];
+//Set to Local Storage
+let project = localStorage.getItem('projectsList');
+project = JSON.parse(project || JSON.stringify(projectList));   
+
 const NewProject = (data, name) => {
     const allTasks = [];
     const taskNum = allTasks.length;
@@ -37,8 +36,6 @@ export const eventListeners = () => {
     projectAddBtn.addEventListener('click', submitProject);
     taskCloseBtn.addEventListener('click', hideTaskForm);
 
-    saveToLocalStorage(); 
-
     hideForm();
     return eventListeners;
 };
@@ -49,7 +46,7 @@ const submitProject = () => {
 
     let data = nextData();
     const createProject = NewProject(data, projectTitle);
-    project.push(createProject);                            //
+    project.push(createProject);                            
     console.log(project);
     saveToLocalStorage();                                              
 
@@ -60,8 +57,8 @@ const submitProject = () => {
 // // Project form in sidebar
 const createProjectForm = (data, newProject) => {
     let projectDiv = document.createElement('div');
-    projectDiv.setAttribute("data-project", data);
-    projectDiv.addEventListener('click', projectNameDisplay);//
+    projectDiv.setAttribute("data-project", `${data}`); 
+    projectDiv.addEventListener('click', projectNameDisplay);
     projectDiv.classList.add('projectDiv');
 
     let buttonDiv = document.createElement('div');
@@ -94,13 +91,13 @@ const createProjectForm = (data, newProject) => {
 }
 
 const nextData = () => {
-    const allProjects = document.querySelectorAll(".projectDiv");
-    console.log(allProjects);
+    const allProjects = document.querySelectorAll("[data-project]");
     return allProjects.length;
 }
 
 const saveToLocalStorage = () => {
-    localStorage.setItem("projectsList", JSON.stringify(project));
+    localStorage.setItem("newProject", JSON.stringify(project));
+    localStorage.setItem("currentId", (id).toString());
 }
 
 // // Opening and closing project form
@@ -117,5 +114,6 @@ const hideTaskForm = () => {
 
 export default {
     eventListeners,
-    projectList
+    projectList,
+    saveToLocalStorage
 };

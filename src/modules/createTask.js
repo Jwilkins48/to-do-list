@@ -1,3 +1,5 @@
+import { saveLocalStorage } from "./addProject";
+
 const toDoContainer = document.querySelector('.toDoContainer');
 const projectNameInput = document.querySelector('#projectName');
 const taskSubBtn = document.querySelector('#taskSubmitBtn');
@@ -7,6 +9,7 @@ const taskDesc = document.querySelector('#taskDesc');
 
 let taskList = [];
 let i = 0;
+let id = Number(localStorage.getItem("currentId")) || i;
 
 const CreateTask = (title, description) => { //Add Date
     const todo = {
@@ -22,6 +25,7 @@ const CreateTask = (title, description) => { //Add Date
 export const submitTask = () => {
     if (taskName.value.trim() !== '') {
         CreateTask(taskName.value, taskDesc.value);
+        saveLocalStorage();
         hideTaskForm();
         createTaskCard();
     } else {
@@ -63,7 +67,7 @@ const createTaskCard = () => {
     });
 }
 
-export const projectNameDisplay = () => {
+const projectNameDisplay = () => {
     toDoContainer.innerHTML = '';
     // Title container
     const taskTitleDiv = document.createElement('div');
@@ -96,17 +100,11 @@ export const projectNameDisplay = () => {
     return taskTitleDiv;
 }
 
-function loadTasks(){
-    let task = Array.from(JSON.parse(localStorage.getItem('task')));
-
-    task.forEach(tasks => {
-        
-    })
-}
-
 //Hide form
 const hideTaskForm = () => {
     taskForm.classList.remove('active')
 };
 
 taskSubBtn.addEventListener('click', submitTask);
+
+export { id, projectNameDisplay }
