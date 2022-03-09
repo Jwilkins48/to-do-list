@@ -11,18 +11,23 @@ const projectNameContainer = document.querySelector('#projectNameContainer');
 const taskCloseBtn = document.querySelector('#taskCloseBtn');
 const taskForm = document.querySelector('.taskForm');
 
+
 let projectList = [];
 
+
 let project = localStorage.getItem("projectsList");
-project = JSON.parse(project || JSON.stringify(projectList));
+project = JSON.parse(project || JSON.stringify(projectList));          //
 
 let i = 0;
-const NewProject = (name) => {
+const NewProject = (data, name) => {
     const allTasks = [];
+    const taskNum = allTasks.length;
     return {
+        data,
         name,
         id: i++,
-        allTasks
+        allTasks,
+        taskNum
     };
 };
 
@@ -32,35 +37,31 @@ export const eventListeners = () => {
     projectAddBtn.addEventListener('click', submitProject);
     taskCloseBtn.addEventListener('click', hideTaskForm);
 
+    saveToLocalStorage(); 
+
     hideForm();
     return eventListeners;
 };
 
-
 //After hitting add inside project form
-const submitProject = (e) => {
-    hideForm();
+const submitProject = () => {
     let projectTitle = projectNameInput.value;
 
-    const createProject = NewProject(projectTitle);
-    project.push(createProject);
-
-    localStorage.setItem("projectsList", JSON.stringify(project));
-    localStorage.setItem("currentId", createProject.id.toString());
-
+    let data = nextData();
+    const createProject = NewProject(data, projectTitle);
+    project.push(createProject);                            //
     console.log(project);
-    project.forEach(project => {
-        createProjectForm(createProject.name);
-    });
+    saveToLocalStorage();                                              
 
-    e.preventDefault();
+    createProjectForm(data, createProject);
+    hideForm();
 }
 
-
 // // Project form in sidebar
-const createProjectForm = (name) => {
-    let projectDiv = document.createElement('button');
-    projectDiv.addEventListener('click', projectNameDisplay);
+const createProjectForm = (data, newProject) => {
+    let projectDiv = document.createElement('div');
+    projectDiv.setAttribute("data-project", data);
+    projectDiv.addEventListener('click', projectNameDisplay);//
     projectDiv.classList.add('projectDiv');
 
     let buttonDiv = document.createElement('div');
@@ -76,7 +77,7 @@ const createProjectForm = (name) => {
 
     // Creating title
     let titleDiv = document.createElement('p');
-    titleDiv.textContent = name;
+    titleDiv.textContent = newProject.name;
     titleDiv.classList.add('projectDisplay');
     projectDiv.appendChild(titleDiv);
 
@@ -88,10 +89,19 @@ const createProjectForm = (name) => {
 
     deleteProjectBtn.addEventListener('click', () => {
         projectNameContainer.removeChild(projectDiv);
-        projectList.splice(projectDiv, 1);
-
+        project.splice(projectDiv, 1);
     });
-};
+}
+
+const nextData = () => {
+    const allProjects = document.querySelectorAll(".projectDiv");
+    console.log(allProjects);
+    return allProjects.length;
+}
+
+const saveToLocalStorage = () => {
+    localStorage.setItem("projectsList", JSON.stringify(project));
+}
 
 // // Opening and closing project form
 const addProject = () => {

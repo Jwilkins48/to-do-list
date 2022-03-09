@@ -5,7 +5,6 @@ const taskForm = document.querySelector('.taskForm');
 const taskName = document.querySelector('#taskName');
 const taskDesc = document.querySelector('#taskDesc');
 
-
 let taskList = [];
 let i = 0;
 
@@ -16,21 +15,19 @@ const CreateTask = (title, description) => { //Add Date
         checked: false,
         id: i++,
     };
-
     taskList.push(todo);
     console.log(taskList);
-
 };
 
 export const submitTask = () => {
-    if(taskName.value.trim() !== ''){
+    if (taskName.value.trim() !== '') {
         CreateTask(taskName.value, taskDesc.value);
         hideTaskForm();
         createTaskCard();
-    } else{
+    } else {
         alert('Please enter task name')
     }
-}
+};
 
 const createTaskCard = () => {
     // All Task Card Container
@@ -98,6 +95,15 @@ export const projectNameDisplay = () => {
     taskTitle.innerHTML = projectNameInput.value;
     return taskTitleDiv;
 }
+
+function loadTasks(){
+    let task = Array.from(JSON.parse(localStorage.getItem('task')));
+
+    task.forEach(tasks => {
+        
+    })
+}
+
 //Hide form
 const hideTaskForm = () => {
     taskForm.classList.remove('active')
